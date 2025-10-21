@@ -1,0 +1,18 @@
+# Heimdal Terminal Configuration
+
+database:
+  host: localhost
+  port: 8123
+  database: market_data
+  username: default
+  password: ""
+  maxConnections: 10
+
+dataLoader:
+  autoLoad: false
+  batchSize: 1000
+  retryAttempts: 3
+
+logging:
+  level: INFO
+  file: logs/heimdal-terminal.log

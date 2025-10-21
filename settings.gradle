@@ -1,0 +1,6 @@
+rootProject.name = 'heimdal-terminal'
+
+include 'heimdal-data'
+include 'heimdal-analytics'
+include 'heimdal-ui'
+include 'heimdal-app'

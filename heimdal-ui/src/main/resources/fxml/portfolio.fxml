@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.marketterminal.ui.controller.PortfolioController"
+      spacing="10" styleClass="portfolio-panel">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Portfolio Tracker" styleClass="panel-title"/>
+
+    <GridPane hgap="20" vgap="10">
+        <Label text="Total Value:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label fx:id="totalValueLabel" text="₹0.00" styleClass="value-label" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Label text="Total Gain/Loss:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Label fx:id="totalGainLabel" text="₹0.00 (0.00%)" styleClass="value-label" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <TabPane VBox.vgrow="ALWAYS">
+        <Tab text="Holdings" closable="false">
+            <TableView fx:id="holdingsTable">
+                <placeholder>
+                    <Label text="No holdings added"/>
+                </placeholder>
+            </TableView>
+        </Tab>
+        <Tab text="Watchlist" closable="false">
+            <VBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <HBox spacing="10">
+                    <TextField fx:id="searchField" promptText="Enter symbol to add" HBox.hgrow="ALWAYS"/>
+                    <Button text="Add to Watchlist" onAction="#onAddToWatchlist"/>
+                </HBox>
+                <TableView fx:id="watchlistTable" VBox.vgrow="ALWAYS">
+                    <placeholder>
+                        <Label text="Watchlist is empty"/>
+                    </placeholder>
+                </TableView>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>

@@ -1,0 +1,59 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.diffplug.spotless' version '7.0.3'
+}
+
+allprojects {
+    group = 'com.marketterminal'
+    version = '1.0.0-SNAPSHOT'
+    
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'com.diffplug.spotless'
+    
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
+    
+    dependencies {
+        // Logging
+        implementation 'org.slf4j:slf4j-api:2.0.16'
+        implementation 'ch.qos.logback:logback-classic:1.5.12'
+        
+        // Testing
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.11.3'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+    
+    test {
+        useJUnitPlatform()
+        testLogging {
+            events "passed", "skipped", "failed"
+            exceptionFormat = "full"
+        }
+    }
+    
+    spotless {
+        java {
+            target 'src/**/*.java'
+            targetExclude '**/module-info.java'
+            googleJavaFormat('1.24.0')
+            removeUnusedImports()
+            trimTrailingWhitespace()
+            endWithNewline()
+        }
+    }
+    
+    tasks.withType(JavaCompile) {
+        options.compilerArgs += ['-Xlint:all', '-Xlint:-exports']
+        options.encoding = 'UTF-8'
+    }
+}

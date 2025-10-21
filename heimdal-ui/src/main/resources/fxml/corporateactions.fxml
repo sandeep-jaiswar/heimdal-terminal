@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.marketterminal.ui.controller.CorporateActionsController"
+      spacing="10" styleClass="corporate-actions-panel">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Corporate Actions" styleClass="panel-title"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Action Type:"/>
+        <ComboBox fx:id="actionTypeFilter" onAction="#onFilterChanged" prefWidth="150"/>
+        <Label text="From:"/>
+        <DatePicker fx:id="startDatePicker" onAction="#onFilterChanged"/>
+        <Label text="To:"/>
+        <DatePicker fx:id="endDatePicker" onAction="#onFilterChanged"/>
+    </HBox>
+
+    <TableView fx:id="actionsTable" VBox.vgrow="ALWAYS">
+        <placeholder>
+            <Label text="No corporate actions found"/>
+        </placeholder>
+    </TableView>
+</VBox>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.marketterminal.ui.controller.DashboardController"
+      fx:id="dashboardContainer" spacing="10" styleClass="dashboard-panel">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Market Dashboard" styleClass="panel-title"/>
+
+    <GridPane hgap="20" vgap="10">
+        <Label text="Indices" styleClass="section-header" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label fx:id="nifty50Label" text="NIFTY 50: --" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Label fx:id="bankNiftyLabel" text="BANK NIFTY: --" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Label fx:id="sensexLabel" text="SENSEX: --" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="20">
+        <VBox fx:id="gainersContainer" spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Top Gainers" styleClass="section-header"/>
+            <TableView VBox.vgrow="ALWAYS"/>
+        </VBox>
+
+        <VBox fx:id="losersContainer" spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Top Losers" styleClass="section-header"/>
+            <TableView VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </HBox>
+</VBox>
