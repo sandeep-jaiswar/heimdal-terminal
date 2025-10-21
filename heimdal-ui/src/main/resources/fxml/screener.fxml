@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.marketterminal.ui.controller.ScreenerController"
+      spacing="10" styleClass="screener-panel">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Stock Screener" styleClass="panel-title"/>
+
+    <VBox fx:id="filtersPanel" spacing="10" style="-fx-border-color: #ccc; -fx-border-width: 1; -fx-padding: 10;">
+        <Label text="Filters" styleClass="section-header"/>
+        <Label text="No filters added. Click 'Add Filter' to start." style="-fx-text-fill: gray;"/>
+    </VBox>
+
+    <HBox spacing="10">
+        <Button fx:id="addFilterButton" text="Add Filter" onAction="#onAddFilter"/>
+        <Button fx:id="runScreenButton" text="Run Screener" onAction="#onRunScreen" styleClass="primary-button"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label fx:id="resultCountLabel" text="0 stocks found"/>
+    </HBox>
+
+    <TableView fx:id="resultsTable" VBox.vgrow="ALWAYS">
+        <placeholder>
+            <Label text="Run screener to see results"/>
+        </placeholder>
+    </TableView>
+</VBox>

@@ -1,0 +1,13 @@
+dependencies {
+    // Database
+    implementation 'com.clickhouse:clickhouse-jdbc:0.7.1'
+    implementation 'org.apache.httpcomponents.client5:httpclient5:5.4.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.18.2'
+    
+    // Testing
+    testImplementation 'com.clickhouse:clickhouse-jdbc:0.7.1:all'
+    testImplementation 'org.testcontainers:testcontainers:1.20.4'
+    testImplementation 'org.testcontainers:clickhouse:1.20.4'
+    testImplementation 'org.testcontainers:junit-jupiter:1.20.4'
+}

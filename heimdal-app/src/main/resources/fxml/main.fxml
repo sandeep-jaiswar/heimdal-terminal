@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.marketterminal.ui.controller.MainController"
+            fx:id="mainContainer">
+    <top>
+        <MenuBar>
+            <Menu text="File">
+                <MenuItem text="Exit" onAction="#onExit"/>
+            </Menu>
+            <Menu text="Data">
+                <MenuItem text="Load EOD Data"/>
+                <MenuItem text="Refresh Market Data"/>
+            </Menu>
+            <Menu text="View">
+                <MenuItem text="Dark Mode"/>
+                <MenuItem text="Save Workspace"/>
+                <MenuItem text="Load Workspace"/>
+            </Menu>
+            <Menu text="Help">
+                <MenuItem text="About" onAction="#onAbout"/>
+                <MenuItem text="Documentation"/>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <center>
+        <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE"/>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" style="-fx-padding: 5; -fx-background-color: #f0f0f0;">
+            <Label text="Status: Ready"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Heimdal Terminal v1.0.0"/>
+        </HBox>
+    </bottom>
+</BorderPane>

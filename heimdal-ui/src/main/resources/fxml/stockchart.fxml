@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.marketterminal.ui.controller.StockChartController"
+      spacing="10" styleClass="chart-panel">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Stock Symbol:"/>
+        <TextField fx:id="symbolField" promptText="Enter symbol (e.g., RELIANCE)" prefWidth="200"/>
+        <Button text="Search" onAction="#onSearchStock"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <ComboBox fx:id="timeframeCombo" onAction="#onTimeframeChanged" prefWidth="100"/>
+    </HBox>
+
+    <Label fx:id="stockInfoLabel" text="Select a stock to view chart" styleClass="info-label"/>
+
+    <LineChart fx:id="priceChart" VBox.vgrow="ALWAYS" title="Price Chart">
+        <xAxis>
+            <CategoryAxis label="Date"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Price" side="LEFT"/>
+        </yAxis>
+    </LineChart>
+
+    <VBox fx:id="indicatorsPanel" spacing="5">
+        <Label text="Indicators" styleClass="section-header"/>
+        <HBox spacing="10">
+            <CheckBox text="SMA 20"/>
+            <CheckBox text="SMA 50"/>
+            <CheckBox text="EMA 12"/>
+            <CheckBox text="Bollinger Bands"/>
+            <CheckBox text="RSI"/>
+            <CheckBox text="MACD"/>
+        </HBox>
+    </VBox>
+</VBox>
